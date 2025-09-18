@@ -20,8 +20,15 @@
       border-bottom: 2px solid #ddd;
     }
 
-    .query-video { flex: 0 0 300px; }
-    .query-video video { width: 100%; }
+    .query-video {
+      max-width: 320px;
+      width: 100%;
+      margin: 0 auto; /* 중앙 정렬 */
+    }
+    .query-video video {
+      width: 100%;
+      border: 3px solid #ccc; /* target과 통일감 있게 */
+    }
     .modification-text {
       width:100%;
       height:100%;
@@ -116,6 +123,22 @@
       flex: 0 0 auto;
       width: 600px;
     }
+    .example-number {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #414e59;
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    .figure, .figure-description {
+      margin-bottom: 2rem;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1.5px solid #ccc;
+      margin: 2.5rem 0;
+    }
+
   </style>
 </head>
 
@@ -129,18 +152,22 @@
           <h1 class="title is-1 publication-title">COVA: Text-Guided Composed Retrieval for Audio-Visual Content</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Gyuwon Han<sup>1</sup>,</span>
+              Gyuwon Han<sup>1*</sup>,</span>
             <span class="author-block">
-              Young Kyun Jang<sup>2</sup>,</span>
+              Young Kyun Jang<sup>2*</sup>,</span>
             <span class="author-block">
               Chanho Eom<sup>1</sup>
             </span>
           </div>
+          <div class="is-size-6 has-text-grey mt-2">
+            * Equal contribution
+          </div><br>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Chung-Ang University</span>
+            <span class="author-block"><sup>1</sup>Chung-Ang University</span><br>
             <span class="author-block"><sup>2</sup>Google DeepMind</span>
           </div>
+
         </div>
       </div>
     </div>
@@ -153,8 +180,7 @@
   <div class="container has-text-centered">
     <img src="./static/images/teaser.png" alt="Teaser Image">
     <p class="teaser-caption">
-      Comparison between (a) existing CoVR, which only accounts for visual modifications, and (b) our proposed
-      COVA benchmark, which jointly considers both visual and auditory modifications for more realistic retrieval scenarios.
+      While the (a) existing CoVR considers only visual modifications, (b) CoVA utilizes both visual and auditory information to support more fine-grained retrieval.
     </p>
   </div>
 </section>
@@ -186,6 +212,7 @@
 
     <!-- ===== Group 1 ===== -->
     <div class="query-block">
+      <h4 class="example-number">Example 1</h4>
       <!-- Query Video -->
       <div class="query-video">
         <video autoplay muted loop playsinline controls>
@@ -230,6 +257,7 @@
 
     <!-- ===== Group 2 ===== -->
     <div class="query-block">
+      <h4 class="example-number">Example 2</h4>
       <div class="query-video">
         <video autoplay muted loop playsinline controls>
           <source src="./static/videos/2/00_query_7JCV2B6mbDo_30.mp4" type="video/mp4">
@@ -259,6 +287,7 @@
 
     <!-- ===== Group 3 ===== -->
     <div class="query-block">
+      <h4 class="example-number">Example 3</h4>
       <!-- Query Video -->
       <div class="query-video">
         <video autoplay muted loop playsinline controls>
@@ -297,6 +326,7 @@
 
     <!-- ===== Group 4 ===== -->
     <div class="query-block">
+      <h4 class="example-number">Example 4</h4>
       <!-- Query Video -->
       <div class="query-video">
         <video autoplay muted loop playsinline controls>
@@ -335,6 +365,7 @@
 
     <!-- ===== Group 5 ===== -->
     <div class="query-block">
+      <h4 class="example-number">Example 5</h4>
       <!-- Query Video -->
       <div class="query-video">
         <video autoplay muted loop playsinline controls>
@@ -373,6 +404,7 @@
 
     <!-- ===== Group 6 ===== -->
     <div class="query-block">
+      <h4 class="example-number">Example 6</h4>
       <!-- Query Video -->
       <div class="query-video">
         <video autoplay muted loop playsinline controls>
@@ -411,36 +443,64 @@
 
     <!-- ================== STATISTICS ================== -->
     <h3 class="stats-title">STATISTICS</h3>
+    <!-- === Statistics Section: 2x2 Grid === -->
+    <div class="container is-max-desktop" style="margin-top: 3rem;">
+      <!-- Row 1: Dataset Composition -->
+      <div class="columns is-vcentered is-variable is-6">
+        <!-- Left: Image -->
+        <div class="column is-half">
+          <div class="figure">
+            <div class="fig-title">Dataset Composition</div>
+            <figure>
+              <img class="img-max-600" src="./static/images/video_count/unique_videos_count.png" alt="Unique Video and Pair Count">
+            </figure>
+          </div>
+        </div>
 
-    <!-- (1 + 2) Composition + Overall Aspect-wise -->
-    <div class="columns is-centered" style="margin-bottom: 2rem;">
-      <!-- (1) Dataset Composition Overview (Left) -->
-      <div class="column is-half">
-        <div class="figure">
-          <div class="fig-title">Dataset Composition Overview</div>
-          <figure>
-            <img class="img-max-600" src="./static/images/video_count/unique_videos_count.png" alt="Unique Video and Pair Count">
-          </figure>
+        <!-- Right: Explanation -->
+        <div class="column is-half">
+          <div class="figure-description">
+            <h4 class="fig-title">Explanation: Dataset Composition</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6;">
+              <strong>Unique videos</strong> refer to distinct video clips, while <strong>Pairs</strong> indicate the number of triplets.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- (2) Overall Aspect-Wise Statistics (Right) -->
-      <div class="column is-half">
-        <div class="figure">
-          <div class="fig-title">Overall Aspect-Wise Statistics</div>
-          <figure>
-            <img class="img-max-600" src="./static/images/unique_word_length/ALL Videos statistics.png" alt="All Dataset Statistics">
-          </figure>
+      <!-- Row 2: Aspect-wise Statistics -->
+      <div class="columns is-vcentered is-variable is-6">
+        <!-- Left: Image -->
+        <div class="column is-half">
+          <div class="figure">
+            <div class="fig-title">
+              Aspect-wise Statistics in Modification Text
+            </div>
+            <figure>
+              <img class="img-max-600" src="./static/images/unique_word_length/ALL Videos statistics.png" alt="All Dataset Statistics">
+            </figure>
+          </div>
+        </div>
+
+        <!-- Right: Explanation -->
+        <div class="column is-half">
+          <div class="figure-description">
+            <h4 class="fig-title">Explanation: Aspect Type Distribution</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6;">
+              Modification texts are categorized into four types: Object, Action, Attribute, and Audio.
+              This chart summarizes the distribution of these types across all triplets in the train and test sets of the dataset.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-
+    <hr class="section-divider">
 
     <!-- 2×2: Word Clouds (bigger) -->
     <div class="columns is-multiline is-centered">
       <div class="column is-half">
         <div class="figure">
-          <div class="fig-title">Word Cloud of Object in Modification Text (Overall)</div>
+          <div class="fig-title">Word Cloud of Object in Modification Text</div>
           <figure>
             <img class="img-large" src="./static/images/wordcloud/wordcloud_object_all_videos.png" alt="Object WordCloud">
           </figure>
@@ -448,7 +508,7 @@
       </div>
       <div class="column is-half">
         <div class="figure">
-          <div class="fig-title">Word Cloud of Action in Modification Text (Overall)</div>
+          <div class="fig-title">Word Cloud of Action in Modification Text</div>
           <figure>
             <img class="img-large" src="./static/images/wordcloud/wordcloud_action_all_videos.png" alt="Action WordCloud">
           </figure>
@@ -456,7 +516,7 @@
       </div>
       <div class="column is-half">
         <div class="figure">
-          <div class="fig-title">Word Cloud of Attribute in Modification Text (Overall)</div>
+          <div class="fig-title">Word Cloud of Attribute in Modification Text</div>
           <figure>
             <img class="img-large" src="./static/images/wordcloud/wordcloud_attribute_all_videos.png" alt="Attribute WordCloud">
           </figure>
@@ -464,38 +524,43 @@
       </div>
       <div class="column is-half">
         <div class="figure">
-          <div class="fig-title">Word Cloud of Audio in Modification Text (Overall)</div>
+          <div class="fig-title">Word Cloud of Audio in Modification Text</div>
           <figure>
             <img class="img-large" src="./static/images/wordcloud/wordcloud_audio_modification_text_all_videos.png" alt="Audio WordCloud">
           </figure>
         </div>
       </div>
     </div>
-
+    <div class="figure-description" style="text-align: center;">
+      <p style="font-size: 0.95rem; line-height: 1.6; color: #555;">We generate word clouds for each of the four modification text aspects: Object, Action, Attribute, and Audio, using the entire dataset (train and test). Each figure visualizes the most frequently occurring words within its respective aspect and provides an intuitive overview of the dominant concepts used in compositional queries.  </p>
+    </div>
+    <hr class="section-divider">
+    
     <!-- (5-1) Video-based Clustering -->
     <div class="columns is-centered" style="margin-bottom: 2rem;">
       <div class="column is-full">
         <div class="figure">
-          <div class="fig-title">Video-based Clustering (Video Distribution per Cluster)</div>
+          <div class="fig-title">Video Distribution per Cluster (Video-based Clustering)</div>
           <figure>
             <img class="img-cluster" src="./static/images/clustering/video_clustering_distribution.png" alt="Video Clustering Distribution">
           </figure>
         </div>
       </div>
     </div>
-
     <!-- (5-2) Audio-based Clustering -->
     <div class="columns is-centered" style="margin-bottom: 2rem;">
       <div class="column is-full">
         <div class="figure">
-          <div class="fig-title">Audio-based Clustering (Audio Distribution per Cluster)</div>
+          <div class="fig-title">Video Distribution per Cluster (Audio-based Clustering)</div>
           <figure>
             <img class="img-cluster" src="./static/images/clustering/audio_clustering_distribution.png" alt="Audio Clustering Distribution">
           </figure>
         </div>
       </div>
     </div>
-
+    <div class="figure-description" style="text-align: center;">
+      <p style="font-size: 0.95rem; line-height: 1.6; color: #555;">We perform clustering based on two types of embeddings: video embeddings and audio embeddings. In each clustering result, we color-code videos by their split: train (green), test (blue), and gallery (yellow). These visualizations offer an intuitive view of the overall distribution patterns in the dataset and how samples are organized across different splits.</p>
+    </div>
   </div>
 </section>
 
